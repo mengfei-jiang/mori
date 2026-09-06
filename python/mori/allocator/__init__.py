@@ -167,6 +167,9 @@ def _jit_ext():
             f"-L{pkg}",
             "-lmori_cco",
             f"-Wl,-rpath,{pkg}",
+            f"-L{Path(torch.__file__).parent / 'lib'}",
+            "-lc10_hip",
+            f"-Wl,-rpath,{Path(torch.__file__).parent / 'lib'}",
         ],
     )
 
